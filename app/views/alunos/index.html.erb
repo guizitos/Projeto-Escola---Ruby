@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Alunos" %>
+
+<h1>Alunos</h1>
+
+<!-- Contêiner para os alunos -->
+<div class="alunos-container">
+  <% @alunos.each do |aluno| %>
+    <%= render aluno %>
+  <% end %>
+</div>
+
+<%= link_to "New aluno", new_aluno_path %>

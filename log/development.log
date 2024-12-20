@@ -1,0 +1,483 @@
+  [1m[35m (148.6ms)[0m  [1m[35mCREATE DATABASE "escola_app_development" ENCODING = 'unicode' /*application='EscolaApp'*/[0m
+  [1m[35m (181.2ms)[0m  [1m[35mCREATE DATABASE "escola_app_development" ENCODING = 'unicode' /*application='EscolaApp'*/[0m
+  [1m[35m (164.7ms)[0m  [1m[35mCREATE DATABASE "escola_app_development" ENCODING = 'unicode' /*application='EscolaApp'*/[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[35mSET search_path TO public /*application='EscolaApp'*/[0m
+  [1m[35m (627.6ms)[0m  [1m[35mCREATE DATABASE "escola_app_development" ENCODING = 'unicode' /*application='EscolaApp'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mSET search_path TO public /*application='EscolaApp'*/[0m
+  [1m[35m (202.5ms)[0m  [1m[35mCREATE DATABASE "escola_app_test" ENCODING = 'unicode' /*application='EscolaApp'*/[0m
+  [1m[35m (19.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='EscolaApp'*/[0m
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='EscolaApp'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3212352440007484515) /*application='EscolaApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='EscolaApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='EscolaApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-12-20 04:48:19.980725', '2024-12-20 04:48:19.980732') RETURNING "key" /*application='EscolaApp'*/[0m
+Migrating to CreateAlunos (20241220042811)
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mBEGIN /*application='EscolaApp'*/[0m
+  [1m[35m (24.4ms)[0m  [1m[35mCREATE TABLE "alunos" ("id" bigserial primary key, "nome" character varying, "idade" integer, "cpf" character varying, "telefone" character varying, "email" character varying, "data_nascimento" date, "endereco" text, "observacao" text, "status" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='EscolaApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241220042811') RETURNING "version" /*application='EscolaApp'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='EscolaApp'*/[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(3212352440007484515) /*application='EscolaApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='EscolaApp'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3212352440007484515) /*application='EscolaApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='EscolaApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (4.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='EscolaApp'*/[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(3212352440007484515) /*application='EscolaApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='EscolaApp'*/[0m
+Started GET "/" for 127.0.0.1 at 2024-12-20 01:56:02 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='EscolaApp'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/rvm/gems/ruby-3.3.5/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-3.3.5/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.5ms | GC: 0.0ms)
+Completed 200 OK in 1974ms (Views: 99.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/alunos" for 127.0.0.1 at 2024-12-20 02:00:47 -0300
+Processing by AlunosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/index.html.erb within layouts/application
+  [1m[36mAluno Load (133.1ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" /*action='index',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/views/alunos/index.html.erb:8
+  Rendered alunos/index.html.erb within layouts/application (Duration: 155.5ms | GC: 2.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 317.7ms | GC: 3.6ms)
+Completed 200 OK in 2153ms (Views: 152.5ms | ActiveRecord: 183.8ms (1 query, 0 cached) | GC: 48.0ms)
+
+
+Started GET "/assets/application-8b441ae0.css" for 127.0.0.1 at 2024-12-20 02:00:49 -0300
+Started GET "/assets/turbo.min-fae85750.js" for 127.0.0.1 at 2024-12-20 02:00:50 -0300
+Started GET "/assets/application-bfcdf840.js" for 127.0.0.1 at 2024-12-20 02:00:50 -0300
+Started GET "/assets/controllers/hello_controller-708796bd.js" for 127.0.0.1 at 2024-12-20 02:00:50 -0300
+Started GET "/assets/controllers/index-ee64e1f1.js" for 127.0.0.1 at 2024-12-20 02:00:50 -0300
+Started GET "/assets/stimulus.min-4b1e420e.js" for 127.0.0.1 at 2024-12-20 02:00:50 -0300
+Started GET "/assets/stimulus-loading-1fc53fe7.js" for 127.0.0.1 at 2024-12-20 02:00:50 -0300
+Started GET "/assets/controllers/application-3affb389.js" for 127.0.0.1 at 2024-12-20 02:00:51 -0300
+Started GET "/alunos/new" for 127.0.0.1 at 2024-12-20 02:01:07 -0300
+Processing by AlunosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/new.html.erb within layouts/application
+  Rendered alunos/_form.html.erb (Duration: 565.9ms | GC: 0.0ms)
+  Rendered alunos/new.html.erb within layouts/application (Duration: 590.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 596.8ms | GC: 0.0ms)
+Completed 200 OK in 1418ms (Views: 600.4ms | ActiveRecord: 45.8ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/alunos" for 127.0.0.1 at 2024-12-20 02:03:18 -0300
+Processing by AlunosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "aluno"=>{"nome"=>"Guilherme Santo Costa", "idade"=>"20", "cpf"=>"58263945711", "telefone"=>"99996497198", "email"=>"[FILTERED]", "data_nascimento"=>"2004-12-21", "endereco"=>"Avenida Adolfo John terry", "observacao"=>"Alergico a banana", "status"=>"1"}, "commit"=>"Create Aluno"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*action='create',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/controllers/alunos_controller.rb:27:in `block in create'
+  [1m[36mAluno Create (31.2ms)[0m  [1m[32mINSERT INTO "alunos" ("nome", "idade", "cpf", "telefone", "email", "data_nascimento", "endereco", "observacao", "status", "created_at", "updated_at") VALUES ('Guilherme Santo Costa', 20, '58263945711', '99996497198', 'guizao@gmail.com', '2004-12-21', 'Avenida Adolfo John terry', 'Alergico a banana', TRUE, '2024-12-20 05:03:19.902919', '2024-12-20 05:03:19.902919') RETURNING "id" /*action='create',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/controllers/alunos_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[35mCOMMIT /*action='create',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/controllers/alunos_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/alunos/1
+Completed 302 Found in 1153ms (ActiveRecord: 39.5ms (1 query, 0 cached) | GC: 1.3ms)
+
+
+Started GET "/alunos/1" for 127.0.0.1 at 2024-12-20 02:03:23 -0300
+Processing by AlunosController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mAluno Load (4.4ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" WHERE "alunos"."id" = 1 LIMIT 1 /*action='show',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/controllers/alunos_controller.rb:63:in `set_aluno'
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/show.html.erb within layouts/application
+  Rendered alunos/_aluno.html.erb (Duration: 12.7ms | GC: 0.0ms)
+  Rendered alunos/show.html.erb within layouts/application (Duration: 99.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 103.5ms | GC: 0.2ms)
+Completed 200 OK in 1307ms (Views: 106.4ms | ActiveRecord: 4.4ms (1 query, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/alunos" for 127.0.0.1 at 2024-12-20 02:03:29 -0300
+Processing by AlunosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/index.html.erb within layouts/application
+  [1m[36mAluno Load (0.6ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" /*action='index',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/views/alunos/index.html.erb:8
+  Rendered alunos/_aluno.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered alunos/index.html.erb within layouts/application (Duration: 14.3ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | GC: 0.3ms)
+Completed 200 OK in 695ms (Views: 19.7ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/alunos/new" for 127.0.0.1 at 2024-12-20 02:03:59 -0300
+Processing by AlunosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/new.html.erb within layouts/application
+  Rendered alunos/_form.html.erb (Duration: 31.4ms | GC: 0.7ms)
+  Rendered alunos/new.html.erb within layouts/application (Duration: 35.2ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 42.0ms | GC: 0.7ms)
+Completed 200 OK in 931ms (Views: 44.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/alunos/new" for 127.0.0.1 at 2024-12-20 02:04:24 -0300
+Processing by AlunosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/new.html.erb within layouts/application
+  Rendered alunos/_form.html.erb (Duration: 11.8ms | GC: 0.0ms)
+  Rendered alunos/new.html.erb within layouts/application (Duration: 16.1ms | GC: 1.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | GC: 1.6ms)
+Completed 200 OK in 711ms (Views: 23.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.6ms)
+
+
+Started POST "/alunos" for 127.0.0.1 at 2024-12-20 02:07:04 -0300
+Processing by AlunosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "aluno"=>{"nome"=>"Pedro Henrique", "idade"=>"21", "cpf"=>"14725836911", "telefone"=>"99996497198", "email"=>"[FILTERED]", "data_nascimento"=>"2003-01-17", "endereco"=>"rua do hospital", "observacao"=>"não é alérgico a banana", "status"=>"1"}, "commit"=>"Create Aluno"}
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN /*action='create',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/controllers/alunos_controller.rb:27:in `block in create'
+  [1m[36mAluno Create (10.9ms)[0m  [1m[32mINSERT INTO "alunos" ("nome", "idade", "cpf", "telefone", "email", "data_nascimento", "endereco", "observacao", "status", "created_at", "updated_at") VALUES ('Pedro Henrique', 21, '14725836911', '99996497198', 'pedroca@gmail.com', '2003-01-17', 'rua do hospital', 'não é alérgico a banana', TRUE, '2024-12-20 05:07:05.857130', '2024-12-20 05:07:05.857130') RETURNING "id" /*action='create',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/controllers/alunos_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT /*action='create',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/controllers/alunos_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/alunos/2
+Completed 302 Found in 1080ms (ActiveRecord: 13.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/alunos/2" for 127.0.0.1 at 2024-12-20 02:07:05 -0300
+Processing by AlunosController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mAluno Load (0.9ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" WHERE "alunos"."id" = 2 LIMIT 1 /*action='show',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/controllers/alunos_controller.rb:63:in `set_aluno'
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/show.html.erb within layouts/application
+  Rendered alunos/_aluno.html.erb (Duration: 2.1ms | GC: 0.0ms)
+  Rendered alunos/show.html.erb within layouts/application (Duration: 22.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | GC: 0.0ms)
+Completed 200 OK in 1034ms (Views: 28.0ms | ActiveRecord: 0.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/alunos" for 127.0.0.1 at 2024-12-20 02:07:08 -0300
+Processing by AlunosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/index.html.erb within layouts/application
+  [1m[36mAluno Load (1.0ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" /*action='index',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/views/alunos/index.html.erb:8
+  Rendered alunos/_aluno.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered alunos/index.html.erb within layouts/application (Duration: 18.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | GC: 0.0ms)
+Completed 200 OK in 738ms (Views: 23.3ms | ActiveRecord: 0.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/alunos" for 127.0.0.1 at 2024-12-20 02:19:41 -0300
+Processing by AlunosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/index.html.erb within layouts/application
+  [1m[36mAluno Load (109.7ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" /*action='index',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/views/alunos/index.html.erb:8
+  Rendered alunos/_aluno.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered alunos/index.html.erb within layouts/application (Duration: 134.6ms | GC: 4.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 184.1ms | GC: 4.2ms)
+Completed 200 OK in 1576ms (Views: 47.8ms | ActiveRecord: 139.3ms (1 query, 0 cached) | GC: 463.1ms)
+
+
+Started GET "/assets/application-c29b9962.css" for 127.0.0.1 at 2024-12-20 02:19:43 -0300
+Started GET "/assets/custom-8e8f50db.css" for 127.0.0.1 at 2024-12-20 02:19:43 -0300
+Started GET "/alunos" for 127.0.0.1 at 2024-12-20 02:28:14 -0300
+Processing by AlunosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/index.html.erb within layouts/application
+  [1m[36mAluno Load (101.4ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" /*action='index',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/views/alunos/index.html.erb:10
+  Rendered alunos/_aluno.html.erb (Duration: 14.6ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 4.3ms | GC: 0.0ms)
+  Rendered alunos/index.html.erb within layouts/application (Duration: 503.0ms | GC: 176.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 676.4ms | GC: 180.8ms)
+Completed 200 OK in 1952ms (Views: 579.2ms | ActiveRecord: 133.2ms (1 query, 0 cached) | GC: 180.8ms)
+
+
+Started GET "/assets/application-4124250a.css" for 127.0.0.1 at 2024-12-20 02:28:18 -0300
+Started GET "/alunos/new" for 127.0.0.1 at 2024-12-20 02:28:29 -0300
+Processing by AlunosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/new.html.erb within layouts/application
+  Rendered alunos/_form.html.erb (Duration: 53.8ms | GC: 0.0ms)
+  Rendered alunos/new.html.erb within layouts/application (Duration: 76.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 87.1ms | GC: 0.0ms)
+Completed 200 OK in 1055ms (Views: 89.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.7ms)
+
+
+Started POST "/alunos" for 127.0.0.1 at 2024-12-20 02:29:52 -0300
+Processing by AlunosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "aluno"=>{"nome"=>"Lana Vitoria", "idade"=>"15", "cpf"=>"78945612300", "telefone"=>"89994011547", "email"=>"[FILTERED]", "data_nascimento"=>"2008-08-29", "endereco"=>"Avenida Adolfo John Terry", "observacao"=>"Alérgica a dorflex", "status"=>"1"}, "commit"=>"Create Aluno"}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN /*action='create',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/controllers/alunos_controller.rb:27:in `block in create'
+  [1m[36mAluno Create (17.3ms)[0m  [1m[32mINSERT INTO "alunos" ("nome", "idade", "cpf", "telefone", "email", "data_nascimento", "endereco", "observacao", "status", "created_at", "updated_at") VALUES ('Lana Vitoria', 15, '78945612300', '89994011547', 'laninha@gmail.com', '2008-08-29', 'Avenida Adolfo John Terry', 'Alérgica a dorflex', TRUE, '2024-12-20 05:29:53.399144', '2024-12-20 05:29:53.399144') RETURNING "id" /*action='create',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/controllers/alunos_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT /*action='create',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/controllers/alunos_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/alunos/3
+Completed 302 Found in 1003ms (ActiveRecord: 22.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/alunos/3" for 127.0.0.1 at 2024-12-20 02:29:57 -0300
+Processing by AlunosController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mAluno Load (4.1ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" WHERE "alunos"."id" = 3 LIMIT 1 /*action='show',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/controllers/alunos_controller.rb:63:in `set_aluno'
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/show.html.erb within layouts/application
+  Rendered alunos/_aluno.html.erb (Duration: 24.5ms | GC: 0.0ms)
+  Rendered alunos/show.html.erb within layouts/application (Duration: 60.5ms | GC: 0.8ms)
+  Rendered layout layouts/application.html.erb (Duration: 63.4ms | GC: 0.8ms)
+Completed 200 OK in 1218ms (Views: 65.7ms | ActiveRecord: 4.1ms (1 query, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/alunos" for 127.0.0.1 at 2024-12-20 02:30:01 -0300
+Processing by AlunosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/index.html.erb within layouts/application
+  [1m[36mAluno Load (0.7ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" /*action='index',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/views/alunos/index.html.erb:10
+  Rendered alunos/_aluno.html.erb (Duration: 2.1ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 2.2ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered alunos/index.html.erb within layouts/application (Duration: 28.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 31.6ms | GC: 0.0ms)
+Completed 200 OK in 870ms (Views: 32.5ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/alunos" for 127.0.0.1 at 2024-12-20 02:33:06 -0300
+Processing by AlunosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/index.html.erb within layouts/application
+  [1m[36mAluno Load (0.8ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" /*action='index',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/views/alunos/index.html.erb:10
+  Rendered alunos/_aluno.html.erb (Duration: 12.0ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 1.7ms | GC: 0.0ms)
+  Rendered alunos/index.html.erb within layouts/application (Duration: 154.4ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 270.4ms | GC: 0.6ms)
+Completed 200 OK in 1261ms (Views: 257.1ms | ActiveRecord: 33.0ms (1 query, 0 cached) | GC: 1.8ms)
+
+
+Started GET "/assets/application-16d76e1c.css" for 127.0.0.1 at 2024-12-20 02:33:08 -0300
+Started GET "/alunos/new" for 127.0.0.1 at 2024-12-20 02:33:55 -0300
+Processing by AlunosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/new.html.erb within layouts/application
+  Rendered alunos/_form.html.erb (Duration: 26.5ms | GC: 0.0ms)
+  Rendered alunos/new.html.erb within layouts/application (Duration: 47.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 58.5ms | GC: 0.0ms)
+Completed 200 OK in 1019ms (Views: 63.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/alunos" for 127.0.0.1 at 2024-12-20 02:35:11 -0300
+Processing by AlunosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "aluno"=>{"nome"=>"Luana Silva", "idade"=>"24", "cpf"=>"74589612344", "telefone"=>"89994011547", "email"=>"[FILTERED]", "data_nascimento"=>"1990-01-30", "endereco"=>"Rua do cemitério", "observacao"=>"Sem observação", "status"=>"1"}, "commit"=>"Create Aluno"}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN /*action='create',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/controllers/alunos_controller.rb:27:in `block in create'
+  [1m[36mAluno Create (5.2ms)[0m  [1m[32mINSERT INTO "alunos" ("nome", "idade", "cpf", "telefone", "email", "data_nascimento", "endereco", "observacao", "status", "created_at", "updated_at") VALUES ('Luana Silva', 24, '74589612344', '89994011547', 'lua@gamil.com', '1990-01-30', 'Rua do cemitério', 'Sem observação', TRUE, '2024-12-20 05:35:12.837018', '2024-12-20 05:35:12.837018') RETURNING "id" /*action='create',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/controllers/alunos_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[35mCOMMIT /*action='create',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/controllers/alunos_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/alunos/4
+Completed 302 Found in 1081ms (ActiveRecord: 12.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/alunos/4" for 127.0.0.1 at 2024-12-20 02:35:12 -0300
+Processing by AlunosController#show as TURBO_STREAM
+  Parameters: {"id"=>"4"}
+  [1m[36mAluno Load (0.9ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" WHERE "alunos"."id" = 4 LIMIT 1 /*action='show',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/controllers/alunos_controller.rb:63:in `set_aluno'
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/show.html.erb within layouts/application
+  Rendered alunos/_aluno.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered alunos/show.html.erb within layouts/application (Duration: 25.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 29.7ms | GC: 0.0ms)
+Completed 200 OK in 885ms (Views: 31.0ms | ActiveRecord: 0.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/alunos" for 127.0.0.1 at 2024-12-20 02:35:15 -0300
+Processing by AlunosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/index.html.erb within layouts/application
+  [1m[36mAluno Load (0.7ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" /*action='index',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/views/alunos/index.html.erb:10
+  Rendered alunos/_aluno.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 1.6ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered alunos/index.html.erb within layouts/application (Duration: 25.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 32.0ms | GC: 0.0ms)
+Completed 200 OK in 976ms (Views: 32.7ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/alunos/1" for 127.0.0.1 at 2024-12-20 02:35:33 -0300
+Processing by AlunosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAluno Load (1.1ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" WHERE "alunos"."id" = 1 LIMIT 1 /*action='show',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/controllers/alunos_controller.rb:63:in `set_aluno'
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/show.html.erb within layouts/application
+  Rendered alunos/_aluno.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered alunos/show.html.erb within layouts/application (Duration: 3.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | GC: 0.0ms)
+Completed 200 OK in 1011ms (Views: 10.9ms | ActiveRecord: 1.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/alunos" for 127.0.0.1 at 2024-12-20 02:35:37 -0300
+Processing by AlunosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/index.html.erb within layouts/application
+  [1m[36mAluno Load (0.9ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" /*action='index',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/views/alunos/index.html.erb:10
+  Rendered alunos/_aluno.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 2.9ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered alunos/index.html.erb within layouts/application (Duration: 87.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 94.3ms | GC: 0.0ms)
+Completed 200 OK in 841ms (Views: 94.9ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/alunos" for 127.0.0.1 at 2024-12-20 02:35:38 -0300
+Processing by AlunosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/index.html.erb within layouts/application
+  [1m[36mAluno Load (0.8ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" /*action='index',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/views/alunos/index.html.erb:10
+  Rendered alunos/_aluno.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered alunos/index.html.erb within layouts/application (Duration: 21.6ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 27.9ms | GC: 0.4ms)
+Completed 200 OK in 1118ms (Views: 28.4ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/alunos" for 127.0.0.1 at 2024-12-20 02:37:49 -0300
+Processing by AlunosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/index.html.erb within layouts/application
+  [1m[36mAluno Load (2.0ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" /*action='index',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/views/alunos/index.html.erb:9
+  Rendered alunos/_aluno.html.erb (Duration: 11.2ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 2.1ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered alunos/index.html.erb within layouts/application (Duration: 114.6ms | GC: 2.8ms)
+  Rendered layout layouts/application.html.erb (Duration: 162.9ms | GC: 3.5ms)
+Completed 200 OK in 1179ms (Views: 168.7ms | ActiveRecord: 13.0ms (1 query, 0 cached) | GC: 20.7ms)
+
+
+Started GET "/alunos" for 127.0.0.1 at 2024-12-20 02:39:36 -0300
+Processing by AlunosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/index.html.erb within layouts/application
+  [1m[36mAluno Load (0.7ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" /*action='index',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/views/alunos/index.html.erb:9
+  Rendered alunos/_aluno.html.erb (Duration: 1.9ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered alunos/index.html.erb within layouts/application (Duration: 16.1ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 59.8ms | GC: 0.4ms)
+Completed 200 OK in 885ms (Views: 60.3ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 1.1ms)
+
+
+Started GET "/assets/application-d1b5be97.css" for 127.0.0.1 at 2024-12-20 02:39:37 -0300
+Started GET "/alunos" for 127.0.0.1 at 2024-12-20 02:40:24 -0300
+Processing by AlunosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/index.html.erb within layouts/application
+  [1m[36mAluno Load (0.9ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" /*action='index',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/views/alunos/index.html.erb:9
+  Rendered alunos/_aluno.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered alunos/index.html.erb within layouts/application (Duration: 15.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 67.5ms | GC: 0.0ms)
+Completed 200 OK in 1149ms (Views: 68.2ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/assets/application-1ac867b5.css" for 127.0.0.1 at 2024-12-20 02:40:26 -0300
+Started GET "/assets/turbo.min-5dd5a71a.js.map" for 127.0.0.1 at 2024-12-20 02:41:03 -0300
+Started GET "/assets/stimulus.min-2395e199.js.map" for 127.0.0.1 at 2024-12-20 02:41:03 -0300
+Started GET "/alunos/1" for 127.0.0.1 at 2024-12-20 02:41:08 -0300
+Processing by AlunosController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering public/406-unsupported-browser.html
+  Rendered public/406-unsupported-browser.html (Duration: 11.6ms | GC: 0.0ms)
+Filter chain halted as #<Proc:0x00007f615eb0d878 /usr/local/rvm/gems/ruby-3.3.5/gems/actionpack-8.0.1/lib/action_controller/metal/allow_browser.rb:58 (lambda)> rendered or redirected
+Completed 406 Not Acceptable in 1492ms (Views: 113.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-12-20 02:41:13 -0300
+Started GET "/alunos" for 127.0.0.1 at 2024-12-20 02:41:13 -0300
+Processing by AlunosController#index as HTML
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  Rendering public/406-unsupported-browser.html
+  Rendered public/406-unsupported-browser.html (Duration: 7.1ms | GC: 0.0ms)
+Filter chain halted as #<Proc:0x00007f615eb0d878 /usr/local/rvm/gems/ruby-3.3.5/gems/actionpack-8.0.1/lib/action_controller/metal/allow_browser.rb:58 (lambda)> rendered or redirected
+Completed 406 Not Acceptable in 2170ms (Views: 13.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 52.7ms)
+
+
+Started GET "/alunos" for 127.0.0.1 at 2024-12-20 02:41:23 -0300
+Processing by AlunosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/index.html.erb within layouts/application
+  [1m[36mAluno Load (0.6ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" /*action='index',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/views/alunos/index.html.erb:9
+  Rendered alunos/_aluno.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered alunos/index.html.erb within layouts/application (Duration: 15.2ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | GC: 0.4ms)
+Completed 200 OK in 981ms (Views: 18.7ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/alunos/1" for 127.0.0.1 at 2024-12-20 02:41:26 -0300
+Processing by AlunosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAluno Load (0.8ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" WHERE "alunos"."id" = 1 LIMIT 1 /*action='show',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/controllers/alunos_controller.rb:63:in `set_aluno'
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/show.html.erb within layouts/application
+  Rendered alunos/_aluno.html.erb (Duration: 2.4ms | GC: 0.0ms)
+  Rendered alunos/show.html.erb within layouts/application (Duration: 54.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 58.9ms | GC: 0.0ms)
+Completed 200 OK in 830ms (Views: 66.2ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/alunos" for 127.0.0.1 at 2024-12-20 02:41:30 -0300
+Processing by AlunosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/index.html.erb within layouts/application
+  [1m[36mAluno Load (0.8ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" /*action='index',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/views/alunos/index.html.erb:9
+  Rendered alunos/_aluno.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered alunos/index.html.erb within layouts/application (Duration: 20.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.2ms | GC: 0.0ms)
+Completed 200 OK in 1053ms (Views: 26.8ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-20 02:52:11 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (6.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='EscolaApp'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/rvm/gems/ruby-3.3.5/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-3.3.5/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.9ms | GC: 0.0ms)
+Completed 200 OK in 1621ms (Views: 53.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/alunos" for 127.0.0.1 at 2024-12-20 02:52:23 -0300
+Processing by AlunosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering alunos/index.html.erb within layouts/application
+  [1m[36mAluno Load (65.6ms)[0m  [1m[34mSELECT "alunos".* FROM "alunos" /*action='index',application='EscolaApp',controller='alunos'*/[0m
+  ↳ app/views/alunos/index.html.erb:9
+  Rendered alunos/_aluno.html.erb (Duration: 9.8ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 3.8ms | GC: 0.0ms)
+  Rendered alunos/_aluno.html.erb (Duration: 3.2ms | GC: 0.0ms)
+  Rendered alunos/index.html.erb within layouts/application (Duration: 217.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 358.6ms | GC: 0.0ms)
+Completed 200 OK in 1420ms (Views: 273.1ms | ActiveRecord: 100.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+

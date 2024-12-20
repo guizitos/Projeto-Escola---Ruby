@@ -1,0 +1,60 @@
+<div class="aluno-card">
+  <!-- Linha para o Nome -->
+  <div class="card-row">
+    <div class="label">Nome:</div>
+    <div class="value"><%= aluno.nome %></div>
+  </div>
+
+  <!-- Linha para a Idade -->
+  <div class="card-row">
+    <div class="label">Idade:</div>
+    <div class="value"><%= aluno.idade %></div>
+  </div>
+
+  <!-- Linha para o CPF -->
+  <div class="card-row">
+    <div class="label">CPF:</div>
+    <div class="value"><%= aluno.cpf %></div>
+  </div>
+
+  <!-- Linha para o Telefone -->
+  <div class="card-row">
+    <div class="label">Telefone:</div>
+    <div class="value"><%= aluno.telefone %></div>
+  </div>
+
+  <!-- Linha para o Email -->
+  <div class="card-row">
+    <div class="label">Email:</div>
+    <div class="value"><%= aluno.email %></div>
+  </div>
+
+  <!-- Linha para a Data de Nascimento -->
+  <div class="card-row">
+    <div class="label">Data de Nascimento:</div>
+    <div class="value"><%= aluno.data_nascimento.strftime('%d/%m/%Y') if aluno.data_nascimento %></div>
+  </div>
+
+  <!-- Linha para o Endereço -->
+  <div class="card-row">
+    <div class="label">Endereço:</div>
+    <div class="value"><%= aluno.endereco %></div>
+  </div>
+
+  <!-- Linha para a Observação -->
+  <div class="card-row">
+    <div class="label">Observação:</div>
+    <div class="value"><%= aluno.observacao %></div>
+  </div>
+
+  <!-- Linha para o Status -->
+  <div class="card-row">
+    <div class="label">Status:</div>
+    <div class="value"><%= aluno.status ? 'Ativo' : 'Inativo' %></div>
+  </div>
+
+  <!-- Link para visualizar o aluno -->
+  <p>
+    <%= link_to "Show this aluno", aluno %>
+  </p>
+</div>
